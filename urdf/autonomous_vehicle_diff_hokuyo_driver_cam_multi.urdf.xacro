@@ -1,0 +1,352 @@
+<?xml version='1.0'?>
+
+<robot name="autonomous_vehicle_diff" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!--================including_plugins===================-->
+
+  <xacro:include
+    filename="$(find urdf_testing)/urdf/autonomous_vehicle_diff_hokuyo_driver_cam_multi.gazebo.xacro" />
+
+
+  <!--===================================-->
+  <!--==============dummy_link===========-->
+  <!--===================================-->
+  <link name="robot_footprint"></link>
+
+  <joint name="robot_footprint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="robot_footprint" />
+    <child link="base_link" />
+  </joint>
+
+  <!--===================================-->
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.2038 0.050754 0.088003"
+        rpy="0 0 0" />
+      <mass
+        value="10.336" />
+      <inertia
+        ixx="5.2391"
+        ixy="-0.011422"
+        ixz="0.12048"
+        iyy="13.931"
+        iyz="0.00042648"
+        izz="18.854" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autonomous_vehicle_diff/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autonomous_vehicle_diff/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Front_Left_wheel_Link">
+    <inertial>
+      <origin
+        xyz="-9.2177E-10 -0.0054128 5.3139E-10"
+        rpy="0 0 0" />
+      <mass
+        value="0.95099" />
+      <inertia
+        ixx="0.19545"
+        ixy="-4.9506E-11"
+        ixz="7.2754E-10"
+        iyy="0.33699"
+        iyz="3.4096E-11"
+        izz="0.19545" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autonomous_vehicle_diff/meshes/Front_Left_wheel_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autonomous_vehicle_diff/meshes/Front_Left_wheel_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_Left_wheel_Joint"
+    type="continuous">
+    <origin
+      xyz="0.70408 0.672 0.115"
+      rpy="3.1416 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Left_wheel_Link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="Front_Right_wheel_Link">
+    <inertial>
+      <origin
+        xyz="-1.2143E-10 0.0054128 -1.057E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.95099" />
+      <inertia
+        ixx="0.19545"
+        ixy="2.056E-12"
+        ixz="-2.2247E-10"
+        iyy="0.33699"
+        iyz="6.0076E-11"
+        izz="0.19545" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autonomous_vehicle_diff/meshes/Front_Right_wheel_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autonomous_vehicle_diff/meshes/Front_Right_wheel_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_Right_wheel_Joint"
+    type="continuous">
+    <origin
+      xyz="0.70408 -0.672 0.115"
+      rpy="3.1416 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Right_wheel_Link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="Back_Left_wheel_Link">
+    <inertial>
+      <origin
+        xyz="-8.0134E-10 -0.0054128 6.9992E-10"
+        rpy="0 0 0" />
+      <mass
+        value="0.95099" />
+      <inertia
+        ixx="0.19545"
+        ixy="-4.1961E-11"
+        ixz="8.4573E-10"
+        iyy="0.33699"
+        iyz="4.3042E-11"
+        izz="0.19545" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autonomous_vehicle_diff/meshes/Back_Left_wheel_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autonomous_vehicle_diff/meshes/Back_Left_wheel_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Back_Left_wheel_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.69427 0.672 0.115"
+      rpy="3.1416 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Back_Left_wheel_Link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="Back_Right_wheel_Link">
+    <inertial>
+      <origin
+        xyz="-2.4213E-11 0.0054128 -1.0637E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.95099" />
+      <inertia
+        ixx="0.19545"
+        ixy="-3.4492E-12"
+        ixz="-6.7768E-11"
+        iyy="0.33699"
+        iyz="6.0012E-11"
+        izz="0.19545" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autonomous_vehicle_diff/meshes/Back_Right_wheel_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autonomous_vehicle_diff/meshes/Back_Right_wheel_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Back_Right_wheel_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.69427 -0.672 0.115"
+      rpy="3.1416 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Back_Right_wheel_Link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+
+  <!--================hokuyo_link==================-->
+  <link name='hokuyo'>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-5" />
+      <inertia
+        ixx="1e-6" ixy="0" ixz="0"
+        iyy="1e-6" iyz="0"
+        izz="1e-6"
+      />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_tests/meshes/hokuyo.dae" />
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.1 0.1" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--==============================================-->
+
+  <!--================hokuyo_joint==================-->
+
+  <joint name="hokuyo_joint" type="fixed">
+    <origin xyz="1.1 0 0.17" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="hokuyo" />
+    <axis xyz="0 1 0" rpy="0 0 0" />
+  </joint>
+  <!--================camera_link==================-->
+  <link name='camera'>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.1" />
+      <!--mass
+      value="cameraMass"/-->
+      <inertia
+        ixx="1e-6" ixy="0" ixz="0"
+        iyy="1e-6" iyz="0"
+        izz="1e-6"
+      />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.05 0.05" />
+        <!--box
+        size="${cameraSize} ${cameraSize} ${cameraSize}"/-->
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.05 0.05" />
+        <!--box
+        size="${cameraSize} ${cameraSize} ${cameraSize}"/-->
+      </geometry>
+    </collision>
+  </link>
+  <!--================camera_joint==================-->
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="1.15 0 0.1" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="camera" />
+    <axis xyz="0 1 0" rpy="0 0 0" />
+  </joint>
+</robot>
